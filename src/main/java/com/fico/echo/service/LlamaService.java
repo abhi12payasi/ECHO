@@ -33,9 +33,10 @@ public class LlamaService {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-
+        long start = System.currentTimeMillis();
         HttpEntity<Map<String, Object>> entity = new HttpEntity<>(request, headers);
         ResponseEntity<Map> response = new RestTemplate().postForEntity(LLAMA_API_URL, entity, Map.class);
+        System.out.println("Time service : " + (System.currentTimeMillis() - start));
         return Objects.requireNonNull(response.getBody()).get("response").toString();
     }
 
