@@ -3,7 +3,9 @@ package com.fico.echo.utils;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class EmbeddingUtil {
     private static final String LLAMA_EMBED_URL = "http://localhost:11434/api/embeddings";

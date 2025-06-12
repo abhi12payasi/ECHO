@@ -1,15 +1,16 @@
 package com.fico.echo.service;
 
 import com.fico.echo.model.ChunkData;
-import com.fico.echo.utils.EmbeddingUtil;
 import jakarta.annotation.PostConstruct;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static com.fico.echo.utils.PDFReader.loadAllPdfChunks;
 
@@ -33,10 +34,8 @@ public class LlamaService {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        long start = System.currentTimeMillis();
         HttpEntity<Map<String, Object>> entity = new HttpEntity<>(request, headers);
         ResponseEntity<Map> response = new RestTemplate().postForEntity(LLAMA_API_URL, entity, Map.class);
-        System.out.println("Time service : " + (System.currentTimeMillis() - start));
         return Objects.requireNonNull(response.getBody()).get("response").toString();
     }
 
@@ -49,8 +48,6 @@ public class LlamaService {
         prompt.append("Q: ").append(question);
         return prompt.toString();
     }
-
-
 
 
 //    public String askQuestion(String question) {

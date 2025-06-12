@@ -15,6 +15,7 @@ public class PDFReader {
             return new PDFTextStripper().getText(document);
         }
     }
+
     public static void loadAllPdfChunks(List<String> pdfChunks) throws IOException {
         File folder = new ClassPathResource("docs").getFile();
         File[] pdfFiles = folder.listFiles((dir, name) -> name.endsWith(".pdf"));
@@ -23,6 +24,7 @@ public class PDFReader {
             pdfChunks.addAll(extractChunksFromPdf(pdfFile, 1000));
         }
     }
+
     private static List<String> extractChunksFromPdf(File file, int chunkSize) throws IOException {
         PDDocument document = PDDocument.load(file);
         PDFTextStripper stripper = new PDFTextStripper();

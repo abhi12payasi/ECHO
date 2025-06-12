@@ -20,8 +20,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.fico.echo.utils.PDFReader.loadAllPdfChunks;
-
 @Service
 public class LlamaWebFluxService {
 
@@ -55,7 +53,6 @@ public class LlamaWebFluxService {
                 .bodyValue(request)
                 .retrieve()
                 .bodyToFlux(String.class);
-        System.out.println("Time webflux service : " + (System.currentTimeMillis() - start));
 
         StringBuilder completeResponse = new StringBuilder();
         start = System.currentTimeMillis();
@@ -63,7 +60,6 @@ public class LlamaWebFluxService {
                 .map(this::extractTextFromNdjson)
                 .doOnNext(completeResponse::append)
                 .blockLast(); // blocks until stream ends
-        System.out.println("Time webflux service resp : " + (System.currentTimeMillis() - start));
         return completeResponse.toString();
     }
 
@@ -94,6 +90,7 @@ public class LlamaWebFluxService {
             pdfChunks.addAll(extractChunksFromPdf(pdfFile, 1000));
         }
     }
+
     private static List<String> extractChunksFromPdf(File file, int chunkSize) throws IOException {
         PDDocument document = PDDocument.load(file);
         PDFTextStripper stripper = new PDFTextStripper();
@@ -107,6 +104,7 @@ public class LlamaWebFluxService {
         }
         return chunks;
     }
+
     public Flux<String> streamLlamaResponse(String question) {
         WebClient webClient = WebClient.builder().baseUrl("http://localhost:11434").build();
 
