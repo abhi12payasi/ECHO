@@ -1,0 +1,10 @@
+com/fico/echo/controller/ChatController.class
+com/fico/echo/service/LlamaWebFluxService.class
+com/fico/echo/proxy/WebConfig$1.class
+com/fico/echo/model/ChatResponse.class
+com/fico/echo/model/ChunkData.class
+com/fico/echo/service/LlamaService.class
+com/fico/echo/utils/PDFReader.class
+com/fico/echo/proxy/WebConfig.class
+com/fico/echo/EchoApplication.class
+com/fico/echo/utils/EmbeddingUtil.class

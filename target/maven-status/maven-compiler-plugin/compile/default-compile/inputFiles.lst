@@ -1,0 +1,9 @@
+/Users/anandarya/IdeaProjects/ECHO2/src/main/java/com/fico/echo/EchoApplication.java
+/Users/anandarya/IdeaProjects/ECHO2/src/main/java/com/fico/echo/controller/ChatController.java
+/Users/anandarya/IdeaProjects/ECHO2/src/main/java/com/fico/echo/model/ChatResponse.java
+/Users/anandarya/IdeaProjects/ECHO2/src/main/java/com/fico/echo/model/ChunkData.java
+/Users/anandarya/IdeaProjects/ECHO2/src/main/java/com/fico/echo/proxy/WebConfig.java
+/Users/anandarya/IdeaProjects/ECHO2/src/main/java/com/fico/echo/service/LlamaService.java
+/Users/anandarya/IdeaProjects/ECHO2/src/main/java/com/fico/echo/service/LlamaWebFluxService.java
+/Users/anandarya/IdeaProjects/ECHO2/src/main/java/com/fico/echo/utils/EmbeddingUtil.java
+/Users/anandarya/IdeaProjects/ECHO2/src/main/java/com/fico/echo/utils/PDFReader.java
